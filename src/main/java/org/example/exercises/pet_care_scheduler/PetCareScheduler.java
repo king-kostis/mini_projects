@@ -1,4 +1,4 @@
-package org.example.mini_projects.pet_care_scheduler;
+package org.example.exercises.pet_care_scheduler;
 
 import java.io.*;
 import java.time.LocalDateTime;

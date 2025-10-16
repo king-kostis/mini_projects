@@ -1,4 +1,4 @@
-package org.example.mini_projects.book;
+package org.example.exercises.book;
 
 public class BookAccess{
     public static void main(String[] args){

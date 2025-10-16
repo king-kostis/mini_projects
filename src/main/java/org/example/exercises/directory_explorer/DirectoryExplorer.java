@@ -1,4 +1,4 @@
-package org.example.mini_projects.directory_explorer;
+package org.example.exercises.directory_explorer;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

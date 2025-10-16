@@ -1,4 +1,4 @@
-package org.example.mini_projects.grocery;
+package org.example.exercises.grocery;
 
 public class ItemNotFoundException extends RuntimeException{
     public ItemNotFoundException(String message){

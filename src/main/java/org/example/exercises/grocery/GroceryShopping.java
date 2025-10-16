@@ -1,4 +1,4 @@
-package org.example.mini_projects.grocery;
+package org.example.exercises.grocery;
 import java.util.Scanner;
 
 public class GroceryShopping{

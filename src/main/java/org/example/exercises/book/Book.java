@@ -1,4 +1,4 @@
-package org.example.mini_projects.book;
+package org.example.exercises.book;
 
 public class Book {
     private String title;
