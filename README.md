@@ -71,7 +71,7 @@ This application is a pet management system that keeps track of pets and their a
 #### Functional Features
 * Register a pet
 * Schedule an appointment for your pet
-* Serialize/Deserialize pet and appointment objects to or from a .ser file for persistence
+* Serialize/Deserialize pet and appointment objects to and from a '.ser' file for persistence
 * Display details such as;
   * all registered pets
   * all appointments for a specific pet

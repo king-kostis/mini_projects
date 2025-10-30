@@ -10,7 +10,8 @@ public class PetCareScheduler {
     private static final List<Appointment> appointments = petService.getAllAppointments();
 
     public static void main(String[] args) {
-        File file = new File("petCareData.ser");
+        File file = new File("/data/petCareData.ser");
+
         if(file.exists()) {
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
                 while (true) {
@@ -22,11 +23,13 @@ public class PetCareScheduler {
                         Appointment appointment = (Appointment) obj;
                         appointments.add(appointment);
                     }
+
                 }
-            } catch (EOFException | ClassNotFoundException e) {
+            } catch (EOFException e){
+                System.out.println("Pets and appointments loaded");
+            } catch (ClassNotFoundException | IOException e) {
                 System.err.println("Error: " + e.getMessage());
-            } catch (IOException e) {
-                System.err.println("Error: " + e.getMessage());
+                e.printStackTrace();
             }
         }
 

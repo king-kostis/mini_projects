@@ -1,8 +1,9 @@
 package org.example.projects.pet_care_scheduler;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Appointment {
+public class Appointment implements Serializable {
     private String appointmentType;
     private LocalDateTime dateTime;
     private String notes;
@@ -13,7 +14,7 @@ public class Appointment {
     }
 
     public Appointment(){
-        this.notes = null;
+        this.notes = "";
     }
 
     public String getAppointmentType(){

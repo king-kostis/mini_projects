@@ -1,10 +1,11 @@
 package org.example.projects.pet_care_scheduler;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pet {
+public class Pet implements Serializable {
     private String id;
     private String name;
     private String breed;
