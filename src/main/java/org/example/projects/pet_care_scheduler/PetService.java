@@ -1,6 +1,7 @@
 package org.example.projects.pet_care_scheduler;
 
 import java.io.*;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -96,7 +97,7 @@ public class PetService {
         LocalDateTime dateTime = null;
         boolean isDateTimeInvalid = true;
         while(isDateTimeInvalid){
-            System.out.println("Enter appointment date in format (dd/MM/yyyy HH:mm:ss): ");
+            System.out.println("Enter appointment date and time in format (dd/MM/yyyy HH:mm:ss): ");
             String dateTimeStr = scan.nextLine().strip();
 
             try {
@@ -207,11 +208,22 @@ public class PetService {
         System.out.println("\nUPCOMING APPOINTMENTS");
         System.out.println("=====================================================");
         //prints pets with upcoming appointments, at least a week away
+
+
         for(String id : pets.keySet()){
             for (int i = 0; i < pets.get(id).getAppointments().size(); i++){
+                //holds days to appointment
+                int daysToAppointment = Period.between(LocalDateTime.now().toLocalDate(), pets.get(id).getAppointments().get(i).getDateTime().toLocalDate()).getDays();
+
+                //checks if appointment is after current date
+                boolean isAppointmentUpcoming = pets.get(id).getAppointments().get(i).getDateTime().isAfter(LocalDateTime.now());
+
+                String dateTime = pets.get(id).getAppointments().get(i).getDateTime().toString();
+                Pet pet = pets.get(id);
+
                 //checks if appointment date is at least a week away before printing
-                if((pets.get(id).getAppointments().get(i).getDateTime().isAfter(LocalDateTime.now())) && (Period.between(LocalDateTime.now().toLocalDate(), pets.get(id).getAppointments().get(i).getDateTime().toLocalDate()).getDays() >= 7)){
-                    System.out.println(pets.get(id) + ": " + pets.get(id).getAppointments().get(i).getDateTime().toString() + "\n");
+                if((isAppointmentUpcoming) && (daysToAppointment >= 7)){
+                    System.out.println(pet + ": " + dateTime + "\n");
                 }
             }
         }
@@ -220,9 +232,19 @@ public class PetService {
         System.out.println("=====================================================");
         for(String id : pets.keySet()){
             for (int i = 0; i < pets.get(id).getAppointments().size(); i++){
+                //holds days to appointment
+                int monthsPastAppointment = Period.between(LocalDateTime.now().toLocalDate(), pets.get(id).getAppointments().get(i).getDateTime().toLocalDate()).getMonths();
+
+                //checks if appointment is after current date
+                boolean isAppointmentOverdue = pets.get(id).getAppointments().get(i).getDateTime().isBefore(LocalDateTime.now());
+
+                String dateTime = pets.get(id).getAppointments().get(i).getDateTime().toString();
+                Pet pet = pets.get(id);
+
+
                 //checks if appointment date is at least 6 months past
-                if((pets.get(id).getAppointments().get(i).getDateTime().isBefore(LocalDateTime.now())) && (Period.between(LocalDateTime.now().toLocalDate(), pets.get(id).getAppointments().get(i).getDateTime().toLocalDate()).getMonths() >= 6)){
-                    System.out.println(pets.get(id)+ ": " + pets.get(id).getAppointments().get(i).getDateTime().toString() + "\n");
+                if((isAppointmentOverdue) && monthsPastAppointment >= 6){
+                    System.out.println(pet + ": " + dateTime + "\n");
                 }
             }
         }

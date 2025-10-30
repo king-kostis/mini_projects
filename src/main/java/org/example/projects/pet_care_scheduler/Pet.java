@@ -60,10 +60,11 @@ public class Pet {
 
     @Override
     public String toString(){
-        return "\nName: " +this.name +
-                "\nBreed: " + this.breed +
-                "\nAge: " + this.age +
-                "\nOwner Name: " + this.ownerName +
-                "\nContact Info: " + this.contactInfo;
+        return "\nId: " + id +
+                "\nName: " + name +
+                "\nBreed: " + breed +
+                "\nAge: " + age +
+                "\nOwner Name: " + ownerName +
+                "\nContact Info: " + contactInfo;
     }
 }
