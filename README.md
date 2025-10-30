@@ -4,7 +4,7 @@
 
 This repository holds the source code to a few mini projects alongside some exercises I have implemented for learning purposes.
 > [!NOTE]
-> Apologies but the logic may be messy and hard to because these projects were more of a learning process. Sorry for the inconvenience.  
+> Apologies but the logic in some of the projects might be messy and hard read. This is because these projects were more of a learning process and involved a lot of trial and error. Sorry for the inconvenience.  
 
 ## Projects
 
@@ -73,6 +73,4 @@ This application is a pet management system that keeps track of pets and their a
   * overdue appointments
 
 ## Author
-> Jesse Aaron Quartey
-> [LinkedIn](https://www.linkedin.com/in/jesse-quartey-3777722a5)
-> Email: jesseqty74@gmail.com
+My name is Jesse Aaron Quartey. You can find me on [LinkedIn](https://www.linkedin.com/in/jesse-quartey-3777722a5) or email me at jesseqty74@gmail.com
