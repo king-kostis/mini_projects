@@ -4,7 +4,8 @@
 
 This repository holds the source code to a few mini projects alongside some exercises I have implemented for learning purposes.
 > [!NOTE]
-> Apologies but the logic in some of the projects might be messy and hard read. This is because these projects were more of a learning process and involved a lot of trial and error. Sorry for the inconvenience.  
+> Apologies but the logic in some of the projects might be messy and hard read. This is because these projects were more of a learning process and involved a lot of trial and error. Sorry for the inconvenience.
+<br>
 
 ## Projects
 
@@ -12,9 +13,10 @@ This repository holds the source code to a few mini projects alongside some exer
 * [Simple Console Directory Explorer Application](#simple-console-directory-explorer-application)
 * [Simple  Console Based Grocery Shopping Application](#simple--console-based-grocery-shopping-application)
 * [Console Based Pet Scheduler Application](#console-based-pet-scheduler-application)
+<br>
 
 <h2 align="center">Overview of Projects </h2>
----
+
 ###  Simple Console Based Mood Tracker Application
 #### Project Description:
 This application allows users to enter a particular mood they are feeling on a particular day. They can also include notes to the mood they are feeling.
@@ -71,6 +73,7 @@ This application is a pet management system that keeps track of pets and their a
 * Generate reports on ;
   * upcoming appointments
   * overdue appointments
+<br>
 
 ## Author
 My name is Jesse Aaron Quartey. You can find me on [LinkedIn](https://www.linkedin.com/in/jesse-quartey-3777722a5) or email me at jesseqty74@gmail.com
