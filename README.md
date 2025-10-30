@@ -4,7 +4,7 @@
 
 This repository holds the source code to a few mini projects alongside some exercises I have implemented for learning purposes.
 > [!NOTE]
-> Apologies but the logic in some of the projects might be messy and hard read. This is because these projects were more of a learning process and involved a lot of trial and error. Sorry for the inconvenience.
+> Apologies but the logic in some of the projects might be messy and hard to read. This is because these projects were more of a learning process and involved a lot of trial and error. Sorry for the inconvenience.
 <br>
 
 ## Projects
