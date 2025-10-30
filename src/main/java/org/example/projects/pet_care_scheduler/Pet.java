@@ -1,4 +1,4 @@
-package org.example.exercises.pet_care_scheduler;
+package org.example.projects.pet_care_scheduler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

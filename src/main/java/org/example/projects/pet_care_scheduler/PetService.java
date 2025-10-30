@@ -1,4 +1,4 @@
-package org.example.exercises.pet_care_scheduler;
+package org.example.projects.pet_care_scheduler;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -7,15 +7,22 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
 
-public class PetCareScheduler {
+public class PetService {
     private static final Scanner scan = new Scanner(System.in);
     private static final Map<String, Pet> pets = new HashMap<>();
     private static final List<Appointment> appointments = new ArrayList<>();
     private static final DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
+    public Map<String, Pet> getAllPets(){
+        return pets;
+    }
+
+    public List<Appointment> getAllAppointments(){
+        return appointments;
+    }
 
     //register pet
-    private static void registerPet(){
+    public void registerPet(){
         System.out.print("Enter pet id: ");
         String petId = scan.nextLine().strip();
 
@@ -49,7 +56,7 @@ public class PetCareScheduler {
     }
 
     //adds appointment for a pet to appointment list
-    private static void scheduleAppointment(){
+    public void scheduleAppointment(){
         System.out.println("Enter pet id: ");
         String petId = scan.nextLine().strip();
 
@@ -66,7 +73,7 @@ public class PetCareScheduler {
         //brings chosen pet out of list
         Pet pet = pets.get(petId);
 
-        //checks if appointment type is valid and iterates the prompt till its right
+        //checks if appointment type is valid and loops the prompt till its right
         boolean isAppointmentInvalid = true;
         String appointmentType = null;
         while(isAppointmentInvalid){
@@ -120,7 +127,7 @@ public class PetCareScheduler {
     }
 
     //stores pet and appointment objects in a file
-    private static void storeData(){
+    public void storeData(){
         File file = new File("petCareData.ser");//stores file as object
 
         if(pets.isEmpty()){
@@ -148,7 +155,7 @@ public class PetCareScheduler {
     }
 
     //displays details to user
-    private static void displayDetails(){
+    public void displayDetails(){
         System.out.println("Choose which details to display");
         System.out.println("1. All registered pets");
         System.out.println("2. All appointments for a specific pet");
@@ -196,7 +203,7 @@ public class PetCareScheduler {
     }
 
     //generate report
-    private static void generateReport(){
+    public void generateReport(){
         System.out.println("\nUPCOMING APPOINTMENTS");
         System.out.println("=====================================================");
         //prints pets with upcoming appointments, at least a week away
@@ -204,7 +211,7 @@ public class PetCareScheduler {
             for (int i = 0; i < pets.get(id).getAppointments().size(); i++){
                 //checks if appointment date is at least a week away before printing
                 if((pets.get(id).getAppointments().get(i).getDateTime().isAfter(LocalDateTime.now())) && (Period.between(LocalDateTime.now().toLocalDate(), pets.get(id).getAppointments().get(i).getDateTime().toLocalDate()).getDays() >= 7)){
-                    System.out.println(pets.get(id) + pets.get(id).getAppointments().get(i).getDateTime().toString() + "\n");
+                    System.out.println(pets.get(id) + ": " + pets.get(id).getAppointments().get(i).getDateTime().toString() + "\n");
                 }
             }
         }
@@ -213,75 +220,11 @@ public class PetCareScheduler {
         System.out.println("=====================================================");
         for(String id : pets.keySet()){
             for (int i = 0; i < pets.get(id).getAppointments().size(); i++){
-                //checks if appointment date is at least a week away before printing
+                //checks if appointment date is at least 6 months past
                 if((pets.get(id).getAppointments().get(i).getDateTime().isBefore(LocalDateTime.now())) && (Period.between(LocalDateTime.now().toLocalDate(), pets.get(id).getAppointments().get(i).getDateTime().toLocalDate()).getMonths() >= 6)){
-                    System.out.println(pets.get(id) + pets.get(id).getAppointments().get(i).getDateTime().toString() + "\n");
+                    System.out.println(pets.get(id)+ ": " + pets.get(id).getAppointments().get(i).getDateTime().toString() + "\n");
                 }
             }
         }
-    }
-
-
-    public static void main(String[] args) {
-        File file = new File("petCareData.ser");
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))){
-            while(true){
-                Object obj = in.readObject();
-                if(obj instanceof Pet){
-                    Pet pet = (Pet) obj;
-                    pets.put(pet.getId(), pet);
-                } else if(obj instanceof Appointment){
-                    Appointment appointment = (Appointment) obj;
-                    appointments.add(appointment);
-                }
-            }
-        } catch (FileNotFoundException e){
-            e.printStackTrace();
-        } catch (EOFException | ClassNotFoundException e) {
-            System.err.println("Error: " + e.getMessage());
-        } catch (IOException e){
-            System.err.println("Error: " + e.getMessage());
-        }
-
-        boolean running = true;
-        while(running){
-            System.out.println("\n     WELCOME TO THE PET SCHEDULER     ");
-            System.out.println("=======================================================================");
-            System.out.println("Enter a number to perform an operation from the following");
-            System.out.println("1. Register Pets");
-            System.out.println("2. Schedule appointments");
-            System.out.println("3. Store data");
-            System.out.println("4. Display records");
-            System.out.println("5. Generate Reports");
-            System.out.println("6. Exit");
-
-            String userChoice = scan.nextLine().strip();
-
-            switch(userChoice){
-                case "1":
-                    registerPet();
-                    break;
-                case "2":
-                    scheduleAppointment();
-                    break;
-                case "3":
-                    storeData();
-                    break;
-                case "4":
-                    displayDetails();
-                    break;
-                case "5":
-                    generateReport();
-                    break;
-                case "6":
-                    System.out.println("Bye");
-                    running = false;
-                    break;
-                default :
-                    System.out.println("Invalid choice");
-                    break;
-            }
-        }
-
     }
 }

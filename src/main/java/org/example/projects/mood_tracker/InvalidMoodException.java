@@ -1,4 +1,4 @@
-package org.example.exercises.mood_tracker;
+package org.example.projects.mood_tracker;
 
 public class InvalidMoodException extends Exception{
     public InvalidMoodException(){

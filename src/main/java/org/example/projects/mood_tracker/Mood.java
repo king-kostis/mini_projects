@@ -1,4 +1,4 @@
-package org.example.exercises.mood_tracker;
+package org.example.projects.mood_tracker;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
