@@ -18,8 +18,7 @@ This repository holds the source code to a few mini projects alongside some exer
 <br>
 
 <h2 align="center">Overview of Projects </h2>
-
----
+<br>
 
 ###  Simple Console Based Mood Tracker Application
 
