@@ -1,0 +1,4 @@
+INFO: User logged in
+INFO: User requested page
+ERROR: Database failed
+WARNING: Low memory
